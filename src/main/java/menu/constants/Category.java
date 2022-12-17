@@ -23,4 +23,21 @@ public enum Category {
     public String getName() {
         return name;
     }
+
+
+    public static Category getCategoriesBySymbol(int input) {
+        return Arrays.stream(Category.values())
+                .filter(category -> category.symbol == input)
+                .findFirst()
+                .get();
+    }
+
+    public static List<String> getMenusByCategory(Category todayCategory) {
+        return Arrays.stream(values())
+                .filter(category -> category.equals(todayCategory))
+                .findFirst()
+                .get()
+                .menuList;
+    }
+
 }
