@@ -1,21 +1,20 @@
-package menu.constants;
+package menu.domain.constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public enum DayOfWeek {
-    MON(0, "월요일"),
-    TUE(1, "화요일"),
-    WED(2, "수요일"),
-    THU(3, "목요일"),
-    FRI(4, "금요일");
+public enum DaysOfWeek {
+    MON("월요일"),
+    TUE("화요일"),
+    WED("수요일"),
+    THU("목요일"),
+    FRI("금요일");
+    public static final int COUNT = 5;
     private static final String START = "구분";
-    private final int symbol;
     private final String name;
 
-    DayOfWeek(int symbol, String name) {
-        this.symbol = symbol;
+    DaysOfWeek(String name) {
         this.name = name;
     }
 
