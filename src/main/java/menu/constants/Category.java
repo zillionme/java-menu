@@ -3,6 +3,8 @@ package menu.constants;
 import java.util.Arrays;
 import java.util.List;
 
+import static menu.util.ErrorCode.NOT_VALID_MENU;
+
 public enum Category {
     JAPANESE(1, "일식", List.of("규동", "우동", "미소시루", "스시", "가츠동", "오니기리", "하이라이스", "라멘", "오코노미야끼")),
     KOREAN(2, "한식", List.of("김밥", "김치찌개", "쌈밥", "된장찌개", "비빔밥", "칼국수", "불고기", "떡볶이", "제육볶음")),
@@ -40,4 +42,20 @@ public enum Category {
                 .menuList;
     }
 
+    public static void validateMenu(List<String> menuList) {
+        if(menuList.size() ==0) {
+            return;
+        }
+        for(String menu : menuList) {
+            if(!Category.isMenuInCategory(menu)) {
+                throw NOT_VALID_MENU.throwError();
+            }
+        }
+    }
+
+    public static boolean isMenuInCategory(String input) {
+        return Arrays.stream(values())
+                .map(category-> category.menuList)
+                .anyMatch(menuList-> menuList.contains(input));
+    }
 }
