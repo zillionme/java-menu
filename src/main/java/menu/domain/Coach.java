@@ -24,6 +24,15 @@ public class Coach {
         return name;
     }
 
+    public String getRecommendMenuOfDays() {
+        List<String> recommendMenus = new ArrayList<>();
+        recommendMenus.add(name);
+        for (String menuOfDay : MenuOfDays) {
+            recommendMenus.add(menuOfDay);
+        }
+        return recommendMenus.stream().collect(Collectors.joining(" | ", "[ ", " ]"));
+    }
+
     public void addMenuOfDays(List<String> menu) {
         do {
             todayMenu = Randoms.shuffle(menu).get(0);
