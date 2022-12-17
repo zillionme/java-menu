@@ -33,7 +33,7 @@ public class InputView {
     }
 
     public List<String> readUnableToEatMenus(String name) {
-        System.out.printf(MESSAGE_INPUT_UNABLE_MENUS+"\n" , name);
+        System.out.printf(MESSAGE_INPUT_UNABLE_MENUS + "\n", name);
         String input = Console.readLine();
         List<String> unableToEatMenus = getUnableToEatMenus(input);
         validateMenu(unableToEatMenus);
@@ -42,13 +42,13 @@ public class InputView {
     }
 
     public void validateMenu(List<String> unableToEatMenus) {
-        if(unableToEatMenus.size()>2) {
+        if (unableToEatMenus.size() > 2) {
             throw NOT_VALID_UNABLE_MENU_COUNT.throwError();
         }
     }
 
     public List<String> getUnableToEatMenus(String input) {
-        if(input.isEmpty()|| input.isBlank()) {
+        if (input.isEmpty() || input.isBlank()) {
             return new ArrayList<>();
         }
         return createList(input);
@@ -75,18 +75,19 @@ public class InputView {
         validateCoachCount(coachNames);
         validateCoachName(coachNames);
     }
+
     public void validateCoachCount(List<String> coachNames) {
-        if(coachNames.size()<2) {
+        if (coachNames.size() < 2) {
             throw NOT_VALID_COACH_COUNT_MIN.throwError();
         }
-        if(coachNames.size()>5) {
+        if (coachNames.size() > 5) {
             throw NOT_VALID_COACH_COUNT_MAX.throwError();
         }
     }
 
     public void validateCoachName(List<String> coachNames) {
-        for(String coachName : coachNames) {
-            if(coachName.length()<2 || coachName.length()>4) {
+        for (String coachName : coachNames) {
+            if (coachName.length() < 2 || coachName.length() > 4) {
                 throw NOT_VALID_COACH_NAME.throwError();
             }
         }
