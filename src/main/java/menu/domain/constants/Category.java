@@ -1,8 +1,9 @@
-package menu.constants;
+package menu.domain.constants;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static menu.util.ErrorCode.NOT_VALID_CATEGORY;
 import static menu.util.ErrorCode.NOT_VALID_MENU;
 
 public enum Category {
@@ -12,6 +13,7 @@ public enum Category {
     ASIAN(4, "아시안", List.of("팟타이", "카오 팟", "나시고렝", "파인애플 볶음밥", "쌀국수", "똠얌꿍", "반미", "월남쌈", "분짜")),
     WESTERN(5, "양식", List.of("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
 
+    public static final String START_CATEGORY = "카테고리";
     private final int symbol;
     private final String name;
     private final List<String> menuList;
@@ -26,14 +28,14 @@ public enum Category {
         return Arrays.stream(Category.values())
                 .filter(category -> category.symbol == input)
                 .findFirst()
-                .get();
+                .orElseThrow(NOT_VALID_CATEGORY::throwError);
     }
 
     public static List<String> getMenusByCategory(Category todayCategory) {
         return Arrays.stream(values())
                 .filter(category -> category.equals(todayCategory))
                 .findFirst()
-                .get()
+                .orElseThrow(NOT_VALID_CATEGORY::throwError)
                 .menuList;
     }
 
