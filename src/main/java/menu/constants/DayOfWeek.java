@@ -5,11 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum DayOfWeek {
-    MON(0,"월요일"),
-    TUE(1,"화요일"),
-    WED(2,"수요일"),
-    THU(3,"목요일"),
-    FRI(4,"금요일");
+    MON(0, "월요일"),
+    TUE(1, "화요일"),
+    WED(2, "수요일"),
+    THU(3, "목요일"),
+    FRI(4, "금요일");
     private static final String START = "구분";
     private final int symbol;
     private final String name;
@@ -23,7 +23,7 @@ public enum DayOfWeek {
         List<String> daysOfWeek = new ArrayList<>();
         daysOfWeek.add(START);
         Arrays.stream(values())
-                .forEach(day-> daysOfWeek.add(day.name));
+                .forEach(day -> daysOfWeek.add(day.name));
         return daysOfWeek;
     }
 }
