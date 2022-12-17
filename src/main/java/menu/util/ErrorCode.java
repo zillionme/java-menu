@@ -9,7 +9,6 @@ public enum ErrorCode {
     NOT_VALID_UNABLE_MENU_COUNT("못먹는 메뉴는 최대 2개만 입력해야 합니다."),
     NOT_VALID_MENU("카테고리에 해당하는 메뉴가 없습니다.");
 
-
     private static final String ERROR_BEGIN = "[ERROR] ";
     private final String errorMessage;
 
