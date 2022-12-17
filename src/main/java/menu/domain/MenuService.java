@@ -43,4 +43,31 @@ public class MenuService {
     }
 
 
+    public List<String> getRecommendCategories() {
+        List<String> recommendCategories = new ArrayList<>();
+        recommendCategories.add(START_CATEGORY);
+        categoriesOfDays.stream()
+                .forEach(category -> recommendCategories.add(category.getName()));
+        return recommendCategories;
+    }
+
+    public List<String> getRecommendMenus() {
+        List<String> recommendMenus = new ArrayList<>();
+        for(Coach coach : coaches) {
+            String recommendMenuOfCoach = coach.getRecommendMenuOfDays();
+            recommendMenus.add(recommendMenuOfCoach);
+        }
+        return recommendMenus;
+    }
+
+
+
+    //    public Category addAndGetTodayCategory() {
+    //        do{
+    //            todayCategory = getTodayCategory();
+    //        } while (!isPossibleCategoryToAdd(todayCategory)); // 2개 이상 중복이면 다시
+    //        categoriesOfDays.add(todayCategory);
+    //        return todayCategory;
+    //    }
+
 }
