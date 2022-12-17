@@ -35,5 +35,12 @@ public class MenuService {
         categoriesOfDays.add(todayCategory);
     }
 
+    public void addTodayMenuToCoaches() {
+        List<String> menu = Category.getMenusByCategory(todayCategory);
+        for(Coach coach : coaches) {
+            coach.addMenuOfDays(menu);
+        }
+    }
+
 
 }
