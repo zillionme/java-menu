@@ -19,7 +19,6 @@ public class InputView {
     private static final int COACH_COUNT_MIN = 2;
     private static final int COACH_COUNT_MAX = 5;
     private static final int UNABLE_TO_EAT_COUNT_MAX = 2;
-
     private static final String MESSAGE_INPUT_UNABLE_MENUS = "\n%s(이)가 못 먹는 메뉴를 입력해 주세요.";
 
     public List<String> readCoachNames() {
@@ -70,40 +69,10 @@ public class InputView {
         }
     }
 
-
-//    //문자열 입력 : 문자열 비었는지 검사하고 문자열 반환
-//    public String readString() {
-//        System.out.println();
-//        String input = Console.readLine();
-//        validateInput(input);
-//        return input;
-//    }
-//
-//    //숫자 입력 : 문자열 비었는지 검사하고, 숫자인지 검사하고 문자열 반환
-//    public int readInt() {
-//        String input = Console.readLine();
-//        validateInput(input);
-//        validateNumber(input);
-//        return Integer.parseInt(input.trim());
-//    }
-
-//    public void validateCoach(List<String> coachNames) {
-//        validateCoachCount(coachNames);
-//        validateCoachName(coachNames);
-//    }
-
-
     public List<String> createList(String input) {
         return Arrays.stream(input.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
-
-//    //숫자인지 +양수인지(음수이면 오류 발생)
-//    public void validateNumber(String input) {
-//        if (!input.chars().allMatch(Character::isDigit)) {
-//            throw NOT_NUMBER.throwError();
-//        }
-//    }
 
 }
