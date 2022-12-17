@@ -62,6 +62,14 @@ public class Controller {
         return getUnableToEatMenus(coachName);
     }
 
+    public void printResult(MenuService menuService) {
+        List<String> daysOfWeek = DaysOfWeek.getDaysOfWeek();
+        List<String> categories = menuService.getRecommendCategories();
+        List<List<String>> menusOfCoach = menuService.getRecommendMenus();
+        outputView.printResult(daysOfWeek, categories, menusOfCoach);
+    }
+
+
     public List<Coach> creatCoachList(List<String> coachNames) {
         List<Coach> coaches = new ArrayList<>();
         for (String coachName : coachNames) {
